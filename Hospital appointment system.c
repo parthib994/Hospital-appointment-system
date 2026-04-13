@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -100,9 +99,10 @@ void addPatient() {
     }
 
     if(temp->type < 1 || temp->type > 3) {
-        printf("  Invalid Type! Setting to Normal (3) by default.\n");
-        temp->type = 3;
-    }
+    printf("  ERROR: Invalid Type! Patient not added.\n");
+    free(temp);
+    return;
+}
     temp->next = NULL;
 
     //  Priority Insertion Logic
